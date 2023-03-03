@@ -1,0 +1,14 @@
+<div class="flex justify-center items-center mt-4">
+    <button mat-raised-button title="Rotate left" [disabled]="isGameOver" (click)="rotateHeroe('left')">
+        <mat-icon>rotate_left</mat-icon></button>
+    <div class="flex flex-col">
+        <button mat-raised-button title="Move forward" [disabled]="isGameOver" (click)="moveForward()">
+            <mat-icon>arrow_upward</mat-icon></button>
+        <button mat-raised-button title="Shoot an arrow" [disabled]="!hero.arrowsLeft || isGameOver"
+            (click)="throwArrow()">
+            <mat-icon>
+                merge_type</mat-icon></button>
+    </div>
+    <button mat-raised-button title="Rotate right" [disabled]="isGameOver" (click)="rotateHeroe('right')">
+        <mat-icon>rotate_right</mat-icon></button>
+</div>

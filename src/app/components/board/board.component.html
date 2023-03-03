@@ -1,0 +1,23 @@
+<mat-grid-list class=" border border-black" gutterSize="0" [cols]="gridDimension ">
+    <div *ngFor="let rows of matrix; index as i; let lastRow = last;">
+        <mat-grid-tile class="border border-black" *ngFor="let cell of rows; index as j; let firstColumn = first;"
+            [class.exit-border]="lastRow && firstColumn" [class.visited]=cell.visited
+            [class.current]="hero.position.i == i && hero.position.j == j">
+            <div class="flex flex-col items-center">
+
+                <div *ngIf="cell.visited">
+                    <p *ngIf="cell.senses.includes('breeze')">💨 Breeze </p>
+                    <p *ngIf="cell.senses.includes('stench')">🧀 Stench </p>
+                    <p *ngIf="cell.occupiedBy=='wumpus'">🐲 Wumpus </p>
+                    <p *ngIf="cell.occupiedBy=='well'">🕳️ Well </p>
+                    <p *ngIf="cell.gold">✨ Gold </p>
+                </div>
+
+                <div *ngIf="hero.position.i == i && hero.position.j == j">
+                    <mat-icon>keyboard_arrow_{{hero.direction}}</mat-icon>
+                </div>
+
+            </div>
+        </mat-grid-tile>
+    </div>
+</mat-grid-list>

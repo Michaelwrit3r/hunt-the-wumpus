@@ -1,0 +1,20 @@
+<section class="h-full w-full flex flex-col items-center justify-center">
+    <h1 class="text-3xl font-bold">
+        Hunt the Wumpus
+    </h1>
+    <button mat-flat-button color="primary" [disabled]="settingsForm.invalid" routerLink="/game">Start Game</button>
+    <form class="max-w-lg mt-4" [formGroup]="settingsForm">
+        <mat-form-field class="mr-4" appearance="outline">
+            <input matInput type="number" min="3" formControlName="gridDimension">
+            <mat-hint>Grid</mat-hint>
+        </mat-form-field>
+        <mat-form-field class="mr-4" appearance="outline">
+            <input matInput type="number" min="0" formControlName="arrowsNumber">
+            <mat-hint>Arrows</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <input matInput type="number" min="0" formControlName="wellsNumber">
+            <mat-hint>Wells</mat-hint>
+        </mat-form-field>
+    </form>
+</section>
